@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Header from './Header'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import DogCard from './DogCard';
 
 function App() {
   
@@ -21,7 +22,7 @@ function App() {
           </Route>
 
           <Route path="/">
-          home
+          <DogCard/>
           </Route>
 
         </Switch>
