@@ -1,5 +1,4 @@
-import React from 'react';
-import TinderCard from 'react-tinder-card';
+import React, { useEffect, useState } from "react";
 import axios from 'axios';
 
 
@@ -16,7 +15,9 @@ function DogCard({ imageUrl }) {
 
   return (
     <div>
+      <center>
       <img src={imagen} alt= "" />
+      </center>
     </div>
   );
 }
