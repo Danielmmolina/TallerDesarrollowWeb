@@ -4,10 +4,20 @@ import axios from 'axios';
 
 
 function DogCard({ imageUrl }) {
+  const [imagen, setImagen] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const resultado = await axios.get('https://dog.ceo/api/breeds/image/random')
+      setImagen(resultado.data.message);
+    };
+    fetchData();
+  },  [] );
+
   return (
-    <TinderCard className="dog-card">
-      <img src={imageUrl} alt="Imagen de perro" />
-    </TinderCard>
+    <div>
+      <img src={imagen} alt= "" />
+    </div>
   );
 }
 
