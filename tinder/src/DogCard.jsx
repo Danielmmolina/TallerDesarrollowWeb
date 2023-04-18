@@ -16,7 +16,7 @@ function DogCard({ imageUrl }) {
   return (
     <div>
       <center>
-      <img src={imagen} alt= "" />
+      <img src={imagen} alt= "" height="420" width= "420" />
       </center>
     </div>
   );
