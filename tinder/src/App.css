@@ -1,0 +1,38 @@
+.buttons {
+    display:flex;
+    width: 100%;
+    position: fixed;
+    bottom: 10vh;
+    justify-content: space-evenly;
+}
+
+.botones .MuiIconButton-root {
+    background-color: white;
+    box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.200);
+
+}
+
+.acepted {
+    padding: 3vw !important;
+    color: orange !important;
+
+}
+
+.rejected {
+    padding: 3vw !important;
+    color: rgb(255, 0, 0) !important;
+
+}
+
+.loading {
+    margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+  text-align: center;
+
+}
+
+.aceptados{
+        text-emphasis-color: red;
+}
