@@ -116,22 +116,7 @@ function DogImage(props, number) {
          </div>
          </section>
 
-<div id='Pagina1'> 
-  <div  id='aceptados'>
-      <center>
-        <h2>Perros aceptados</h2>    
-        <ul >
-          {perrosAceptados.map(dog => (
-            <li key={dog.url}>
-              <DogImage url={dog.url} number={1}/>
-              <p>{dog.name}</p>
-              <UndoButton onClick={() => handleUndo(dog, perrosAceptados)} />
-            </li>
-          ))}
-        </ul>
-        </center>
-
-        </div>
+<div id='Pagina1'>  
         <div  id='candidato'>
 
 
@@ -174,6 +159,22 @@ function DogImage(props, number) {
           </div>
         )}
       </div>
+
+      <div  id='aceptados'>
+      <center>
+        <h2>Perros aceptados</h2>    
+        <ul >
+          {perrosAceptados.map(dog => (
+            <li key={dog.url}>
+              <DogImage url={dog.url} number={1}/>
+              <p>{dog.name}</p>
+              <UndoButton onClick={() => handleUndo(dog, perrosAceptados)} />
+            </li>
+          ))}
+        </ul>
+        </center>
+
+        </div>
 
       <div  id='rechazados'>
         <center> 
