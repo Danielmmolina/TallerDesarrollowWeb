@@ -58,10 +58,19 @@ function App() {
   };
 
   
-function DogImage(props) {
-    return (
-      <img src={props.url} alt="Random dog" width="300" height="300" />
-    );
+function DogImage(props, number) {
+    if(props.number==1){
+      return (
+        <img id='imagenPAR' src={props.url} alt="Random dog" />
+        
+      );
+    }
+    else{
+      return (
+        <img id='imagenPC' src={props.url} alt="Random dog" />
+      );
+    }
+  
   }
   
   function UndoButton(props) {
@@ -74,27 +83,81 @@ function DogImage(props) {
 
 
   return (
-    <div className="App">
-      
-      <img src="https://i.imgur.com/yINeoDx.png" width= "350" length="200" align="right"/>
-      <img src="https://i.imgur.com/riJifQ3.png" width= "100" length="100" align="left"/>
-      
-      
-    
+    <section id='pagina'>
+
+      <section id='superior1'> 
+      <div> 
+      <img id="perritasSolteras" src="https://i.imgur.com/ZV2LzLb.png"/>
+      </div>
+
+      <div id='superior'>
+
+  
+
+        <center> 
+      <div id='superior2'>
+      <p id='parrafoTit'>
+        <h1>
+             
+              <label id='titPag1'>PERROS <label id='titPag2'>CALIENTES</label>  </label>
+             
+
+              <h2 id='subtitPag'>
+            el verdadero placer de la salchicha
+          </h2>
+
+          </h1>
+      </p>
+      </div>
+      </center>
+
+      <img id="logo1" src="../img/Mi proyecto.png"  /> 
+
+         </div>
+         </section>
+
+<div id='Pagina1'> 
+  <div  id='aceptados'>
       <center>
-        
-      <div className="column">
-        <h2>Perro candidato</h2>
+        <h2>Perros aceptados</h2>    
+        <ul >
+          {perrosAceptados.map(dog => (
+            <li key={dog.url}>
+              <DogImage url={dog.url} number={1}/>
+              <p>{dog.name}</p>
+              <UndoButton onClick={() => handleUndo(dog, perrosAceptados)} />
+            </li>
+          ))}
+        </ul>
+        </center>
+
+        </div>
+        <div  id='candidato'>
+
+
+          <center>
+
+      <h2 id='titPC' >Perro candidato</h2>
+      
+         
+
+     
+        </center>
         {cargando ? (
           <img classname="loading" src="https://media.giphy.com/media/8agqybiK5LW8qrG3vJ/giphy.gif" alt="loading" />
         ) : (
           <div>
-            <DogImage url={perroImagen} />
-          
-            <p>{generateDogName()}</p>
-           
-            
-            <div className="buttons">
+            <center>
+
+          <DogImage url={perroImagen} number={0} />
+       
+              
+        
+            <b> 
+            <p id='nombrePC'>{generateDogName()}</p>
+            </b>
+
+            <div>
                 
                 <IconButton className="acepted" onClick={handleAccept}>
                     <FavoriteIcon className="header__icon" fontSize="large" disabled={cargando}/>
@@ -107,38 +170,46 @@ function DogImage(props) {
               
               
             </div>
+            </center>
           </div>
         )}
       </div>
-      </center>
-      <div className="Aceptados">
-        <h2>Perros aceptados</h2>
-        <ul>
-          {perrosAceptados.map(dog => (
-            <li key={dog.url}>
-              <DogImage url={dog.url} />
-              <p>{dog.name}</p>
-              <UndoButton onClick={() => handleUndo(dog, perrosAceptados)} />
-            </li>
-          ))}
-        </ul>
-      </div>
-      <p align = "right"> 
-      <div className="Rechazados">
-        <h2>Perros rechazados</h2>
+
+      <div  id='rechazados'>
+        <center> 
+        
+            
+            <h2>Perros rechazados</h2>
+                     
+
+
+       
+       
+        
         <ul>
           {perrosRechazados.map(dog => (
             <li key={dog.url}>
-              <DogImage url={dog.url} />
+              <DogImage url={dog.url} number={1} />
               <p>{dog.name}</p>
               <UndoButton onClick={() => handleUndo(dog, perrosRechazados)} />
             </li>
           ))}
         </ul>
+        </center>
       </div>
-      </p>
-      <img src="https://i.imgur.com/ZV2LzLb.png" width={200} align="left"/>
-    </div>
+      
+
+      
+      </div>
+      
+
+      
+      
+      
+
+      
+      
+      </section>
   );
 }
 
