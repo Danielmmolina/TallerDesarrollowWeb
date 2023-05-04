@@ -4,13 +4,21 @@ import { FaUndo } from 'react-icons/fa';
 import './App.css';
 import CloseIcon from '@mui/icons-material/Close';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { Grid, Box, Card, CardContent, CardMedia,IconButton } from '@mui/material';
+import {IconButton } from '@mui/material';
+import LoremIpsum from 'react-lorem-ipsum';
+
 
 function App() {
   const [cargando, setCargando] = useState(true);
   const [perroImagen, setPerroImagen] = useState('');
   const [perrosRechazados, setPerroRechazados] = useState([]);
   const [perrosAceptados, setPerrosAceptados] = useState([]);
+
+  
+  
+
+
+
 
   useEffect(() => {
     fetchDogImage();
@@ -57,6 +65,9 @@ function App() {
     }
   };
 
+
+ 
+
   
 function DogImage(props, number) {
     if(props.number==1){
@@ -94,7 +105,7 @@ function DogImage(props, number) {
 
   
 
-        <center> 
+        
       <div id='superior2'>
       <p id='parrafoTit'>
         <h1>
@@ -109,20 +120,21 @@ function DogImage(props, number) {
           </h1>
       </p>
       </div>
-      </center>
+     
 
       <img id="logo1" src="../img/Mi proyecto.png"  /> 
 
          </div>
          </section>
+  <section id= 'a'>
+    <div id='Pagina1'> 
 
-<div id='Pagina1'>  
         <div  id='candidato'>
 
 
           <center>
 
-      <h2 id='titPC' >Perro candidato</h2>
+      <h2 id='titPC' >Perro candidato </h2>
       
          
 
@@ -141,7 +153,7 @@ function DogImage(props, number) {
             <b> 
             <p id='nombrePC'>{generateDogName()}</p>
             </b>
-
+        
             <div>
                 
                 <IconButton className="acepted" onClick={handleAccept}>
@@ -161,13 +173,15 @@ function DogImage(props, number) {
       </div>
 
       <div  id='aceptados'>
+         
       <center>
         <h2>Perros aceptados</h2>    
         <ul >
           {perrosAceptados.map(dog => (
             <li key={dog.url}>
-              <DogImage url={dog.url} number={1}/>
+              <DogImage url={dog.url} number={1}/> 
               <p>{dog.name}</p>
+              
               <UndoButton onClick={() => handleUndo(dog, perrosAceptados)} />
             </li>
           ))}
@@ -175,8 +189,8 @@ function DogImage(props, number) {
         </center>
 
         </div>
-
-      <div  id='rechazados'>
+          
+      <div  id='rechazados' >
         <center> 
         
             
@@ -203,7 +217,7 @@ function DogImage(props, number) {
       
       </div>
       
-
+      </section>  
       
       
       

@@ -1,4 +1,6 @@
 
+
+
 .acepted {
     padding: 3vw !important;
     color: orange !important;
@@ -11,14 +13,7 @@
 
 }
 
-.loading {
-    margin: auto;
-  width: 50%;
-  border: 3px solid green;
-  padding: 10px;
-  text-align: center;
 
-}
 
 #Pagina1{
     display: flex;
@@ -27,13 +22,17 @@
 #candidato{
      margin-top: 1%;
      width: 48%;
-     border-style: solid;    
+     border-style: solid;  
+     
+     height: 45em;  
 }
 #aceptados{
      margin-top: 1%;
      margin-left: 1%;
      border-style: solid;
      width: 25%;
+     overflow: auto;
+     height: 45em;
 }
 
 #rechazados{
@@ -41,18 +40,22 @@
      width: 25%;
      margin-right: 1%;
      border-style: solid;
+     overflow: auto;
+     height: 45em;
+     
+ 
 }
 
 #imagenPC{
      margin-top: 3%;
-     height: 400px;
-     width: 400px;
+     height: 25em;
+     width: 25em;
 }
 
 #imagenPAR{
      margin-top: 5%;
-     height: 150px;
-     width: 150px;
+     height: 9.375em;
+     width: 9.375em;
 }
 
 #nombrePC{
@@ -75,10 +78,15 @@
 
 #subtitPag{
     font-size: 100%;
+    width: 31em;
+    margin-left: 25%;
+
 }
 
 #parrafoTit{
     margin-top: 10%;
+    width: 31em;
+    
 }
 
 #titPC{
@@ -86,18 +94,19 @@
 }
 
 #logo1{
-     height: 150px;
+     height: 9.375em;
      margin-top: 5%;
 }
 
 #superior{
      display: flex;
      margin-left: 35%; 
+
 }
 
 #perritasSolteras{
-     width: 200px;
-     height: 200px;
+     width: 12.5em;
+     height: 12.5em;
      margin-top: 5%;
      margin-left: 10%;
 }
@@ -105,10 +114,15 @@
 #superior1{
      display: flex;
      width: 50%;
-     height: 200px;
+     height: 12.5em;
      margin-left:none;
+     
 }
 
 #pagina{
     background-color:white;
 }
+
+
+
+
