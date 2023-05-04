@@ -7,17 +7,20 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import {IconButton } from '@mui/material';
 import LoremIpsum from 'react-lorem-ipsum';
 
-
 function App() {
   const [cargando, setCargando] = useState(true);
   const [perroImagen, setPerroImagen] = useState('');
   const [perrosRechazados, setPerroRechazados] = useState([]);
   const [perrosAceptados, setPerrosAceptados] = useState([]);
 
-  
-  
 
+  const x = LoremIpsum;
 
+  const descripcion= x({
+    random: true,
+    p: 1,
+    avgSentencesPerParagraph: 3,
+  });
 
 
   useEffect(() => {
@@ -152,6 +155,7 @@ function DogImage(props, number) {
         
             <b> 
             <p id='nombrePC'>{generateDogName()}</p>
+            <p> {descripcion} </p>
             </b>
         
             <div>
