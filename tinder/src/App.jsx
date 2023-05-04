@@ -20,7 +20,8 @@ function App() {
     random: true,
     p: 1,
     avgSentencesPerParagraph: 3,
-  });
+  }
+  );
 
 
   useEffect(() => {
@@ -50,12 +51,12 @@ function App() {
   };
 
   const handleAccept = () => {
-    setPerrosAceptados([...perrosAceptados, { name: generateDogName(), url: perroImagen }]);
+    setPerrosAceptados([...perrosAceptados, { name: generateDogName(), url: perroImagen, description: descripcion }]);
     fetchDogImage();
   };
 
   const handleReject = () => {
-    setPerroRechazados([...perrosRechazados, { name: generateDogName(), url: perroImagen }]);
+    setPerroRechazados([...perrosRechazados, { name: generateDogName(), url: perroImagen, description: descripcion }]);
     fetchDogImage();
   };
 
@@ -185,6 +186,7 @@ function DogImage(props, number) {
             <li key={dog.url}>
               <DogImage url={dog.url} number={1}/> 
               <p>{dog.name}</p>
+              <p>{dog.description} </p>
               
               <UndoButton onClick={() => handleUndo(dog, perrosAceptados)} />
             </li>
@@ -210,6 +212,7 @@ function DogImage(props, number) {
             <li key={dog.url}>
               <DogImage url={dog.url} number={1} />
               <p>{dog.name}</p>
+              <p>{dog.description}</p>
               <UndoButton onClick={() => handleUndo(dog, perrosRechazados)} />
             </li>
           ))}
