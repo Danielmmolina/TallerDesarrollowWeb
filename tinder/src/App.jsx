@@ -6,6 +6,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import {IconButton } from '@mui/material';
 import LoremIpsum from 'react-lorem-ipsum';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import UndoIcon from '@mui/icons-material/Undo';
 
 function App() {
   const [cargando, setCargando] = useState(true);
@@ -51,12 +53,12 @@ function App() {
   };
 
   const handleAccept = () => {
-    setPerrosAceptados([...perrosAceptados, { name: generateDogName(), url: perroImagen, description: descripcion }]);
+    setPerrosAceptados([...perrosAceptados, { name: generateDogName(), url: perroImagen}]);
     fetchDogImage();
   };
 
   const handleReject = () => {
-    setPerroRechazados([...perrosRechazados, { name: generateDogName(), url: perroImagen, description: descripcion }]);
+    setPerroRechazados([...perrosRechazados, { name: generateDogName(), url: perroImagen}]);
     fetchDogImage();
   };
 
@@ -187,8 +189,14 @@ function DogImage(props, number) {
               <DogImage url={dog.url} number={1}/> 
               <p>{dog.name}</p>
               <p>{dog.description} </p>
-              
-              <UndoButton onClick={() => handleUndo(dog, perrosAceptados)} />
+
+              <IconButton className="verDesc" onClick={handleAccept}>
+                    <VisibilityIcon className="header__icon" fontSize="large" disabled={cargando}/>
+                </IconButton>    
+
+              <IconButton className="undoAceptados" onClick={(UndoButton) => handleUndo(dog, perrosAceptados)}>
+                    <UndoIcon className="header__icon" fontSize="large" disabled={cargando}/>
+                </IconButton>
             </li>
           ))}
         </ul>
@@ -213,7 +221,13 @@ function DogImage(props, number) {
               <DogImage url={dog.url} number={1} />
               <p>{dog.name}</p>
               <p>{dog.description}</p>
-              <UndoButton onClick={() => handleUndo(dog, perrosRechazados)} />
+              <IconButton className="verDesc" onClick={handleAccept}>
+                    <VisibilityIcon className="header__icon" fontSize="large" disabled={cargando}/>
+                </IconButton>
+
+                <IconButton className="undoRechazados" onClick={(UndoButton) => handleUndo(dog, perrosRechazados)}>
+                    <UndoIcon className="header__icon" fontSize="large" disabled={cargando}/>
+                </IconButton>
             </li>
           ))}
         </ul>
