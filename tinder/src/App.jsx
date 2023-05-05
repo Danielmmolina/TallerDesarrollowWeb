@@ -4,16 +4,20 @@ import { FaUndo } from 'react-icons/fa';
 import './App.css';
 import CloseIcon from '@mui/icons-material/Close';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import {IconButton } from '@mui/material';
+import {IconButton, Typography } from '@mui/material';
 import LoremIpsum from 'react-lorem-ipsum';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import UndoIcon from '@mui/icons-material/Undo';
+import Popover from "@mui/material/Popover";
+import Button from "@mui/material/Button";
+import { Card, CardContent, CardMedia } from "@mui/material";
 
 function App() {
   const [cargando, setCargando] = useState(true);
   const [perroImagen, setPerroImagen] = useState('');
   const [perrosRechazados, setPerroRechazados] = useState([]);
   const [perrosAceptados, setPerrosAceptados] = useState([]);
+  const [anchorEl, setAnchorEl] = useState(null);
 
 
   const x = LoremIpsum;
@@ -30,17 +34,30 @@ function App() {
     fetchDogImage();
   }, []);
 
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
+
+
+
   const fetchDogImage = () => {
     setCargando(true);
     axios.get('https://dog.ceo/api/breeds/image/random')
-      .then(response => {
-        setPerroImagen(response.data.message);
-        setCargando(false);
-      })
-      .catch(error => {
-        console.log(error);
-        setCargando(false);
-      });
+    .then(response => {
+      setPerroImagen(response.data.message);
+      setCargando(false);
+    })
+    .catch(error => {
+      console.log(error);
+      setCargando(false);
+    });
   };
 
   const generateDogName = () => {
@@ -188,11 +205,33 @@ function DogImage(props, number) {
             <li key={dog.url}>
               <DogImage url={dog.url} number={1}/> 
               <p>{dog.name}</p>
-              <p>{dog.description} </p>
 
-              <IconButton className="verDesc" onClick={handleAccept}>
+              <IconButton className="verDesc" variant="contained" onClick={handleClick}>
                     <VisibilityIcon className="header__icon" fontSize="large" disabled={cargando}/>
-                </IconButton>    
+                </IconButton>
+                
+                  <Popover
+                    open={open}
+                    anchorEl={anchorEl}
+                    onClose={handleClose}
+                    anchorOrigin={{
+                      vertical: "bottom",
+                      horizontal: "left",
+                     }}>
+
+                  <Card>
+
+                     <CardMedia
+                        classname="imagenDesc"
+                        component="img"
+                        image={dog.url}/>
+                  <CardContent>
+                    
+                    <b>Nombre:</b> {dog.name} <br />
+                   <b>Descripcion:</b> {dog.description}
+                  </CardContent> 
+                    </Card>
+                </Popover>  
 
               <IconButton className="undoAceptados" onClick={(UndoButton) => handleUndo(dog, perrosAceptados)}>
                     <UndoIcon className="header__icon" fontSize="large" disabled={cargando}/>
@@ -220,14 +259,41 @@ function DogImage(props, number) {
             <li key={dog.url}>
               <DogImage url={dog.url} number={1} />
               <p>{dog.name}</p>
-              <p>{dog.description}</p>
-              <IconButton className="verDesc" onClick={handleAccept}>
+              <IconButton className="verDesc" variant="contained" onClick={handleClick}>
                     <VisibilityIcon className="header__icon" fontSize="large" disabled={cargando}/>
                 </IconButton>
+                
+                  <Popover
+                    open={open}
+                    anchorEl={anchorEl}
+                    onClose={handleClose}
+                    anchorOrigin={{
+                      vertical: "bottom",
+                      horizontal: "left",
+                     }}>
+
+                  <Card>
+
+                     <CardMedia
+                        classname="imagenDesc"
+                        component="img"
+                        image={dog.url}/>
+                  <CardContent>
+
+                    <b>Nombre:</b> {dog.name} <br />
+                   <b>Descripcion:</b> {dog.description}
+                  </CardContent> 
+                    </Card>
+                </Popover>
 
                 <IconButton className="undoRechazados" onClick={(UndoButton) => handleUndo(dog, perrosRechazados)}>
                     <UndoIcon className="header__icon" fontSize="large" disabled={cargando}/>
                 </IconButton>
+
+      
+
+
+
             </li>
           ))}
         </ul>
@@ -246,7 +312,9 @@ function DogImage(props, number) {
       
       
       </section>
+
   );
+  
 }
 
 export default App; 
