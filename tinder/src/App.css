@@ -34,6 +34,29 @@
      overflow: auto;
      height: 45em;
 }
+#aceptados li {
+     -moz-transform: rotate(180deg);
+     -webkit-transform: rotate(180deg);
+     transform:rotate(180deg);
+}
+
+#aceptados ul {
+     -moz-transform: rotate(-180deg);
+     -webkit-transform: rotate(-180deg);
+     transform:rotate(-180deg);
+}
+
+#rechazados li {
+     -moz-transform: rotate(180deg);
+     -webkit-transform: rotate(180deg);
+     transform:rotate(180deg);
+}
+
+#rechazados ul {
+     -moz-transform: rotate(-180deg);
+     -webkit-transform: rotate(-180deg);
+     transform:rotate(-180deg);
+}
 
 #rechazados{
      margin-top: 1% ;
