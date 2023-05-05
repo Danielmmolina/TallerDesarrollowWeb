@@ -13,6 +13,23 @@
 
 }
 
+.undoRechazados {
+     padding: 1vw !important;
+     color: rgb(255, 0, 0) !important;
+ 
+ }
+
+ .undoAceptados {
+     padding: 1vw !important;
+     color: rgb(255, 0, 0) !important;
+ 
+ }
+
+ .verDesc {
+     padding: 1vw !important;
+     color: rgb(0, 132, 255) !important;
+ 
+ }
 
 
 #Pagina1{

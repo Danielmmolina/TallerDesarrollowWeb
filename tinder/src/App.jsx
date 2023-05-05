@@ -53,12 +53,12 @@ function App() {
   };
 
   const handleAccept = () => {
-    setPerrosAceptados([...perrosAceptados, { name: generateDogName(), url: perroImagen}]);
+    setPerrosAceptados([...perrosAceptados, { name: generateDogName(), url: perroImagen , description: descripcion}]);
     fetchDogImage();
   };
 
   const handleReject = () => {
-    setPerroRechazados([...perrosRechazados, { name: generateDogName(), url: perroImagen}]);
+    setPerroRechazados([...perrosRechazados, { name: generateDogName(), url: perroImagen , description: descripcion}]);
     fetchDogImage();
   };
 
